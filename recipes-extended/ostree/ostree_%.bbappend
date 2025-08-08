@@ -2,6 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
             file://0001-mount-Allow-building-when-macro-MOUNT_ATTR_IDMAP-is-.patch \
+            file://0002-mount-Allow-building-when-macro-LOOP_CONFIGURE-is-no.patch \
             "
 
 PACKAGECONFIG:append = " curl libarchive builtin-grub2-mkconfig"
