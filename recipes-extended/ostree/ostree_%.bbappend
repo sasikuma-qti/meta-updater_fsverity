@@ -1,5 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+SRC_URI += " \
+            file://0001-mount-Allow-building-when-macro-MOUNT_ATTR_IDMAP-is-.patch \
+            "
+
 PACKAGECONFIG:append = " curl libarchive builtin-grub2-mkconfig"
 PACKAGECONFIG:class-native:append = " curl"
 # gpgme is not required by us, and it brings GPLv3 dependencies
