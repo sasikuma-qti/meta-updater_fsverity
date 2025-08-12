@@ -21,3 +21,13 @@ PACKAGECONFIG:append:class-native = "${@bb.utils.contains('DISTRO_FEATURES', 'cf
 
 # TODO: Upstream this addition.
 PACKAGECONFIG[composefs] = "--with-composefs, --without-composefs"
+
+require ostree-prepare-root.inc
+
+do_install:append() {
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'cfs', 'true', 'false', d)}; then
+        install -d ${D}${systemd_system_unitdir}
+        install -m 0644 /dev/null ${D}${nonarch_libdir}/ostree/prepare-root.conf
+        write_prepare_root_config ${D}${nonarch_libdir}/ostree/prepare-root.conf
+    fi
+}
