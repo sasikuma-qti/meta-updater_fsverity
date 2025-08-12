@@ -18,3 +18,6 @@ PACKAGECONFIG:append:class-native = "${@bb.utils.contains('DISTRO_FEATURES', 'cf
 # Ensure ed25519 is available for signing commits.
 PACKAGECONFIG:append = "${@bb.utils.contains('DISTRO_FEATURES', 'cfs-signed', ' ed25519-libsodium', '', d)}"
 PACKAGECONFIG:append:class-native = "${@bb.utils.contains('DISTRO_FEATURES', 'cfs-signed', ' ed25519-libsodium', '', d)}"
+
+# TODO: Upstream this addition.
+PACKAGECONFIG[composefs] = "--with-composefs, --without-composefs"
